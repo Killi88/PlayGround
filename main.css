@@ -1,0 +1,64 @@
+body {
+    background: #111;
+    color: #fff;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px 48px 24px;
+}
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 24px 48px 24px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+}
+.tile {
+    background: #222;
+    border-radius: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+.tile:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+}
+.tile-img {
+    width: 100%;
+    height: 140px;
+    background: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #888;
+}
+.tile-label {
+    padding: 18px 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+}
+a.tile {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
