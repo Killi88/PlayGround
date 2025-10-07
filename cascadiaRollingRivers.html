@@ -9,7 +9,63 @@
 <body>
   <div class="title">Cascadia: Rolling Rivers</div>
   <div class="content">
-    <p>This page is currently under construction. Please check back later.</p>
+    <ul class="counter-list">
+      <li class="counter-item">
+         <div>
+          <img class="counter-img" src="images/cascadiaRollingRivers/bear.png" alt="Bear">
+        </div>
+        <button class="counter-btn" onclick="changeCount(0, -1)">-</button>
+        <span class="counter-value" id="counter-0">0</span>
+        <button class="counter-btn" onclick="changeCount(0, 1)">+</button>
+      </li>
+      <li class="counter-item">
+         <div>
+          <img class="counter-img" src="images/cascadiaRollingRivers/deer.png" alt="Deer">
+        </div>
+        <button class="counter-btn" onclick="changeCount(1, -1)">-</button>
+        <span class="counter-value" id="counter-1">0</span>
+        <button class="counter-btn" onclick="changeCount(1, 1)">+</button>
+      </li>
+      <li class="counter-item">
+        <div>
+          <img class="counter-img" src="images/cascadiaRollingRivers/fox.png" alt="Fox">
+        </div>
+        <button class="counter-btn" onclick="changeCount(2, -1)">-</button>
+        <span class="counter-value" id="counter-2">0</span>
+        <button class="counter-btn" onclick="changeCount(2, 1)">+</button>
+      </li>
+      <li class="counter-item">
+        <div>
+          <img class="counter-img" src="images/cascadiaRollingRivers/eagle.png" alt="Eagle">
+        </div>
+        <button class="counter-btn" onclick="changeCount(3, -1)">-</button>
+        <span class="counter-value" id="counter-3">0</span>
+        <button class="counter-btn" onclick="changeCount(3, 1)">+</button>
+      </li>
+      <li class="counter-item">
+        <div>
+          <img class="counter-img" src="images/cascadiaRollingRivers/fish.png" alt="Fish">
+        </div>
+        <button class="counter-btn" onclick="changeCount(4, -1)">-</button>
+        <span class="counter-value" id="counter-4">0</span>
+        <button class="counter-btn" onclick="changeCount(4, 1)">+</button>
+      </li>
+      <li class="counter-item">
+        <div>
+          <img class="counter-img" src="images/cascadiaRollingRivers/pinecone.png" alt="Pinecone">
+        </div>
+        <button class="counter-btn" onclick="changeCount(5, -1)">-</button>
+        <span class="counter-value" id="counter-5">0</span>
+        <button class="counter-btn" onclick="changeCount(5, 1)">+</button>
+      </li>
+    </ul>
   </div>
+  <script>
+    const counters = [0, 0, 0, 0, 0, 0];
+    function changeCount(idx, delta) {
+      counters[idx] = Math.max(0, counters[idx] + delta);
+      document.getElementById('counter-' + idx).textContent = counters[idx];
+    }
+  </script>
 </body>
 </html>
