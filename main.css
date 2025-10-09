@@ -115,25 +115,63 @@ a.tile {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
     align-items: center;
 }
 .counter-item {
     display: flex;
     align-items: center;
-    gap: 18px;
-    background: #222;
+    gap: 16px;
     border-radius: 18px;
-    padding: 16px 24px;
+    padding: 12px 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
+.counter-bear {
+    background: #8B5C2A;
+}
+.counter-deer {
+    background: #F5E6C8;
+    color: #222;
+}
+.counter-fox {
+    background: #FF9800;
+}
+.counter-eagle {
+    background: #2196F3;
+}
+.counter-fish {
+    background: #C2185B;
+}
+.counter-pinecone {
+    background: #388E3C;
+}
 .counter-img {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
     margin-bottom: 0;
-    border-radius: 12px;
+    border-radius: 10px;
     background: #333;
+    display: block;
+    padding: 5px;
+}
+.counter-bear .counter-img {
+    background: #A97A50;
+}
+.counter-deer .counter-img {
+    background: #FFF5E1;
+}
+.counter-fox .counter-img {
+    background: #FFB74D;
+}
+.counter-eagle .counter-img {
+    background: #64B5F6;
+}
+.counter-fish .counter-img {
+    background: #E573A7;
+}
+.counter-pinecone .counter-img {
+    background: #66BB6A;
 }
 .counter-btn {
     background: none;
