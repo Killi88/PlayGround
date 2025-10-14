@@ -1,0 +1,103 @@
+/* Mini Golf page specific styles */
+.minigolf-content {
+    display: inline-block;
+    min-width: 320px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+    background: #222;
+    border-radius: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    color: #fff;
+}
+.minigolf-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.minigolf-center input[type="text"] {
+    width: 180px;
+    margin-bottom: 8px;
+}
+.minigolf-center select {
+    margin-bottom: 16px;
+}
+.minigolf-center button {
+    margin-top: 16px;
+}
+.minigolf-ranking {
+    text-align: center;
+}
+.minigolf-ranking ol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+}
+.minigolf-ranking li {
+    width: 220px;
+    text-align: center;
+    list-style-position: inside;
+}
+.minigolf-finish {
+    text-align: center;
+}
+.minigolf-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+.minigolf-table th, .minigolf-table td {
+    border: 1px solid #444;
+    padding: 6px 8px;
+    text-align: center;
+    background: #111;
+    color: #fff;
+}
+.minigolf-table th {
+    background: #333;
+    font-weight: bold;
+}
+.score-input {
+    width: 48px;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background: #222;
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+}
+button {
+    background: #2196F3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #1976D2;
+}
+input[type="text"] {
+    margin: 6px 0;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background: #222;
+    color: #fff;
+    font-size: 1rem;
+}
+select {
+    margin: 6px 0;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background: #222;
+    color: #fff;
+    font-size: 1rem;
+}

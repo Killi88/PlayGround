@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Golf</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="miniGolf.css">
+</head>
+<body>
+  <div class="title-sub">Mini Golf</div>
+  <div class="minigolf-content">
+    <form id="setupForm" class="minigolf-center">
+      <label for="numPlayers">Number of players:</label>
+      <select id="numPlayers" name="numPlayers" onchange="renderPlayerInputs()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <div id="playerNames" class="minigolf-center"></div>
+      <button type="button" onclick="startGame()">Start</button>
+    </form>
+    <div id="scoreSection" style="display:none;"></div>
+    <div id="rankingSection" style="display:none;"></div>
+  </div>
+  <script>
+    let playerCount = 1;
+    let playerNames = [""];
+    let scores = [];
+    function renderPlayerInputs() {
+      playerCount = parseInt(document.getElementById('numPlayers').value);
+      const container = document.getElementById('playerNames');
+      container.innerHTML = '';
+      playerNames = [];
+      for (let i = 0; i < playerCount; i++) {
+  container.innerHTML += `<input type='text' placeholder='Player ${i+1} Name' id='playerName${i}' required>`;
+        playerNames.push("");
+      }
+    }
+    renderPlayerInputs();
+    function startGame() {
+      playerNames = [];
+      for (let i = 0; i < playerCount; i++) {
+        const name = document.getElementById('playerName'+i).value.trim() || `Player ${i+1}`;
+        playerNames.push(name);
+      }
+      document.getElementById('setupForm').style.display = 'none';
+      renderScoreInputs();
+    }
+    function renderScoreInputs() {
+      scores = Array(playerCount).fill().map(()=>Array(18).fill(""));
+      const section = document.getElementById('scoreSection');
+      let html = '<form id="scoreForm">';
+      html += '<table class="minigolf-table"><thead><tr><th>Hole</th>';
+      for(let p=0;p<playerCount;p++) html += `<th>${playerNames[p]}</th>`;
+      html += '</tr></thead><tbody>';
+      for(let h=0;h<18;h++) {
+        html += `<tr><td>Hole ${h+1}</td>`;
+        for(let p=0;p<playerCount;p++) {
+          html += `<td><input type='number' min='1' max='20' class='score-input' id='score-${p}-${h}' oninput='updateTotals()'></td>`;
+        }
+        html += '</tr>';
+      }
+      // Totals row
+      html += `<tr><td><strong>Total</strong></td>`;
+      for(let p=0;p<playerCount;p++) {
+        html += `<td id='total-${p}'><strong>0</strong></td>`;
+      }
+      html += '</tr>';
+      html += '</tbody></table>';
+  html += '<div class="minigolf-finish"><button type="button" onclick="finishGame()">Finish</button></div>';
+      html += '</form>';
+      section.innerHTML = html;
+      section.style.display = '';
+      updateTotals();
+    }
+    function updateTotals() {
+      for(let p=0;p<playerCount;p++) {
+        let total = 0;
+        for(let h=0;h<18;h++) {
+          let val = parseInt(document.getElementById(`score-${p}-${h}`).value) || 0;
+          total += val;
+        }
+        document.getElementById('total-'+p).innerHTML = `<strong>${total}</strong>`;
+      }
+    }
+    function finishGame() {
+      let results = [];
+      for(let p=0;p<playerCount;p++) {
+        let total = 0;
+        for(let h=0;h<18;h++) {
+          let val = parseInt(document.getElementById(`score-${p}-${h}`).value) || 0;
+          total += val;
+        }
+        results.push({name: playerNames[p], score: total});
+      }
+      results.sort((a,b)=>a.score-b.score);
+      let html = '<h2>Ranking</h2><ol>';
+      for(let i=0;i<results.length;i++) {
+        html += `<li>${results[i].name}: ${results[i].score} strokes</li>`;
+      }
+      html += '</ol>';
+      document.getElementById('scoreSection').style.display = 'none';
+      document.getElementById('rankingSection').innerHTML = `<div class='minigolf-ranking'>${html}</div>`;
+      document.getElementById('rankingSection').style.display = '';
+    }
+  </script>
+</body>
+</html>
