@@ -1,4 +1,25 @@
 /* Mini Golf page specific styles */
+body {
+    background: #111;
+    color: #fff;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    max-width: 500px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 24px 48px 24px;
+}
 .minigolf-content {
     display: inline-block;
     min-width: 320px;
